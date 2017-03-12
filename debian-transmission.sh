@@ -2,8 +2,7 @@
 PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
 export PATH
 
-# http://dadi.me/ dadi.ME
-# 2013.03.30
+
 # Transmission | Debian
 
 # VERSION CHOICE
@@ -16,21 +15,21 @@ fi
 
 # CONFIGURATION
 username=""
-read -p "Set username(dadi.me):" username
+read -p "Set username(transmission):" username
 if [ "$username" = "" ]; then
-	username="dadi.me"
+	username="transmission"
 fi
 
 password=""
-read -p "Set password(dadi.me):" password
+read -p "Set password(transmission):" password
 if [ "$password" = "" ]; then
-	password="dadi.me"
+	password="transmission"
 fi
 
 port=""
-read -p "Set port(1989):" port
+read -p "Set port(9091):" port
 if [ "$port" = "" ]; then
-	port="1989"
+	port="9091"
 fi
 
 	get_char()
@@ -61,15 +60,16 @@ fi
 
 # SETTINGS.JSON
 /etc/init.d/transmission-daemon stop
-wget http://dadi.me/wp-content/uploads/dir/Transmission/settings.json
-mv -f settings.json /var/lib/transmission-daemon/info/
-sed -i 's/^.*rpc-username.*/"rpc-username": "'$(echo $username)'",/' /var/lib/transmission-daemon/info/settings.json
-sed -i 's/^.*rpc-password.*/"rpc-password": "'$(echo $password)'",/' /var/lib/transmission-daemon/info/settings.json
-sed -i 's/^.*rpc-port.*/"rpc-port": '$(echo $port)',/' /var/lib/transmission-daemon/info/settings.json
+wget --no-check-certificate https://raw.githubusercontent.com/asukax/transmission/master/settings.json
+mv -f settings.json /etc/transmission-daemon/
+sed -i 's/^.*rpc-username.*/"rpc-username": "'$(echo $username)'",/' /etc/transmission-daemon/settings.json
+sed -i 's/^.*rpc-password.*/"rpc-password": "'$(echo $password)'",/' /etc/transmission-daemon/settings.json
+sed -i 's/^.*rpc-port.*/"rpc-port": '$(echo $port)',/' /etc/transmission-daemon/settings.json
 /etc/init.d/transmission-daemon start
 
 mkdir -p /home/transmission/Downloads/
 chmod -R 777 /home/transmission/Downloads/
+wget https://github.com/uesugitatsuya/transmission-web/raw/master/release/tr-control-easy-install.sh && sh tr-control-easy-install.sh
 
 # END
 clear
