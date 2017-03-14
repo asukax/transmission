@@ -74,8 +74,8 @@ sed -i 's/^.*rpc-password.*/"rpc-password": "'$(echo $password)'",/' /etc/transm
 sed -i 's/^.*rpc-port.*/"rpc-port": '$(echo $port)',/' /etc/transmission-daemon/settings.json
 /etc/init.d/transmission-daemon start
 
-mkdir -p /home/transmission/Downloads/
-chmod -R 777 /home/transmission/Downloads/
+mkdir -p /home/transmission/downloads/
+chmod -R 777 /home/transmission/downloads/
 #
 if [ ! -d "$tmpFolder" ]; then
 	cd /tmp
