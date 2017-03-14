@@ -66,13 +66,13 @@ else
 fi
 
 # SETTINGS.JSON
-service transmission-daemon stop
+/etc/init.d/transmission-daemon stop
 wget --no-check-certificate https://raw.githubusercontent.com/asukax/transmission/master/settings.json
-mv -f settings.json /etc/transmission-daemon
+mv -f settings.json /etc/transmission-daemon/
 sed -i 's/^.*rpc-username.*/"rpc-username": "'$(echo $username)'",/' /etc/transmission-daemon/settings.json
 sed -i 's/^.*rpc-password.*/"rpc-password": "'$(echo $password)'",/' /etc/transmission-daemon/settings.json
 sed -i 's/^.*rpc-port.*/"rpc-port": '$(echo $port)',/' /etc/transmission-daemon/settings.json
-service transmission-daemon start
+/etc/init.d/transmission-daemon start
 
 mkdir -p /home/transmission/downloads/
 chmod -R 777 /home/transmission/downloads/
