@@ -66,6 +66,7 @@ else
 fi
 
 # SETTINGS.JSON
+/etc/init.d/transmission-daemon start
 /etc/init.d/transmission-daemon stop
 wget --no-check-certificate https://raw.githubusercontent.com/asukax/transmission/master/settings.json
 mv -f settings.json /etc/transmission-daemon/
