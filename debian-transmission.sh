@@ -52,7 +52,7 @@ if [ "$ver" = "latest" ]; then
 	echo "APT::Default-Release \"stable\";" >> /etc/apt/apt.conf.d/71distro
 else
 	apt-get update
-	apt-get -y install transmission-daemon
+	apt-get install transmission-daemon
 fi
 
 # SETTINGS.JSON
