@@ -70,7 +70,7 @@ sed -i 's/^.*rpc-whitelist-enabled.*/    "rpc-whitelist-enabled": false,/' /etc/
 
 #mkdir -p /home/transmission/downloads/
 #chmod -R 777 /home/transmission/downloads/
-
+wget https://github.com/asukax/transmission-web/raw/master/release/tr-control-easy-install.sh && sh tr-control-easy-install.sh
 # END
 clear
 echo "Done."
