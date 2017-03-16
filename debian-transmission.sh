@@ -64,7 +64,7 @@ sed -i 's/^.*rpc-username.*/    "rpc-username": "'$(echo $username)'",/' /etc/tr
 sed -i 's/^.*rpc-password.*/    "rpc-password": "'$(echo $password)'",/' /etc/transmission-daemon/settings.json
 sed -i 's/^.*rpc-port.*/    "rpc-port": '$(echo $port)',/' /etc/transmission-daemon/settings.json
 sed -i 's/^.*dht-enabled.*/    "dht-enabled": false,/' /etc/transmission-daemon/settings.json
-sed -i 's/^.*rpc-port.*/    "rpc-whitelist-enabled": false,/' /etc/transmission-daemon/settings.json
+sed -i 's/^.*rpc-whitelist-enabled.*/    "rpc-whitelist-enabled": false,/' /etc/transmission-daemon/settings.json
 /etc/init.d/transmission-daemon start
 
 #mkdir -p /home/transmission/downloads/
