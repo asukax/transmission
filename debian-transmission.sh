@@ -45,12 +45,12 @@ fi
 
 # START
 if [ "$ver" = "latest" ]; then
-#	echo "deb http://ftp.debian.org/debian/ sid main" >> /etc/apt/sources.list
-#	echo "deb http://ftp.debian.org/debian/ experimental main" >> /etc/apt/sources.list
-#	apt-get update
-#	apt-get -t experimental install transmission-daemon -y
-#	echo "APT::Default-Release \"stable\";" >> /etc/apt/apt.conf.d/71distro
-	apt-get install transmission-daemon
+	echo "deb http://ftp.debian.org/debian/ sid main" >> /etc/apt/sources.list
+	echo "deb http://ftp.debian.org/debian/ experimental main" >> /etc/apt/sources.list
+	apt-get update
+	apt-get -t experimental install transmission-daemon -y
+	echo "APT::Default-Release \"stable\";" >> /etc/apt/apt.conf.d/71distro
+#	apt-get install transmission-daemon
 else
 #	apt-get update
 	apt-get install transmission-daemon
