@@ -58,6 +58,7 @@ fi
 
 # SETTINGS.JSON
 /etc/init.d/transmission-daemon stop
+killall transmission-daemon
 #wget --no-check-certificate https://raw.githubusercontent.com/asukax/transmission/master/settings.json
 #mv -f settings.json /etc/transmission-daemon/
 sed -i 's/^.*rpc-username.*/    "rpc-username": "'$(echo $username)'",/' /etc/transmission-daemon/settings.json
