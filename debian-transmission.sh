@@ -50,10 +50,10 @@ if [ "$ver" = "latest" ]; then
 	apt-get update
 	apt-get -t experimental install transmission-daemon -y
 	echo "APT::Default-Release \"stable\";" >> /etc/apt/apt.conf.d/71distro
-#	apt-get install transmission-daemon
+
 else
-#	apt-get update
-	apt-get install transmission-daemon
+	apt-get update
+	apt-get -y install transmission-daemon
 fi
 
 # SETTINGS.JSON
